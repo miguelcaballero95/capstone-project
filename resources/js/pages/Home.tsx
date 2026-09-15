@@ -1,3 +1,4 @@
+import { Flow } from '@/components/home/Flow';
 import { Hero } from '@/components/home/Hero';
 import { Link } from '@inertiajs/react';
 
@@ -22,8 +23,9 @@ export default function HomePage() {
       </header>
       <main className="pt-20 px-6">
         <Hero />
+        <Flow />
       </main>
-      <footer className="bg-background border-t-2 border-gray-200 px-6 py-8">
+      <footer className="bg-background border-t-2 border-gray-200 px-6 py-8 mt-12">
         <div className="mx-auto max-w-7xl">
           <div>
             <div className="flex flex-col items-start lg:col-span-2">
