@@ -1,3 +1,4 @@
+import { Benefits } from '@/components/home/Benefits';
 import { Flow } from '@/components/home/Flow';
 import { Hero } from '@/components/home/Hero';
 import { Link } from '@inertiajs/react';
@@ -24,6 +25,7 @@ export default function HomePage() {
       <main className="pt-20 px-6">
         <Hero />
         <Flow />
+        <Benefits />
       </main>
       <footer className="bg-background border-t-2 border-gray-200 px-6 py-8 mt-12">
         <div className="mx-auto max-w-7xl">
