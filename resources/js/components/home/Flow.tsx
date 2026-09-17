@@ -35,7 +35,7 @@ const items: FlowItem[] = [
 
 export const Flow = () => {
   return (
-    <section className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
+    <section className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 lg:gap-8">
       {items.map(item => <FlowCard key={item.number} item={item} />)}
     </section>
   )

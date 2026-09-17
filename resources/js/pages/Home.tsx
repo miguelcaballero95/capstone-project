@@ -9,15 +9,15 @@ export default function HomePage() {
   return (
     <div className="min-h-screen overflow-hidden bg-background text-black">
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-gray-100 bg-background shadow-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-2 lg:px-12">
           <div className="flex items-center gap-2.5">
-            <img src="/images/logo-landscape.png" alt="StallSpot Logo" className="h-auto w-34 md:w-42" />
+            <img src="/images/logo-landscape.png" alt="StallSpot Logo" className="h-auto w-30 md:w-34 lg:w-42" />
           </div>
           <div className="items-center gap-1 flex">
-            <Link href="/login" className="px-4 text-sm font-semibold text-gray-600">Log in</Link>
+            <Link href="/login" className="px-2 md:px-4 text-sm font-semibold text-gray-600">Log in</Link>
             <Link
               href="/register"
-              className="rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg">
+              className="rounded-xl bg-primary px-3 md:px-5 py-2 md:py-2.5 text-sm font-semibold text-white shadow-lg">
               Register
             </Link>
           </div>

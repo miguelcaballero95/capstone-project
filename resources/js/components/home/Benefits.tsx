@@ -3,15 +3,15 @@ import { BenefitCard } from "./BenefitCard"
 
 export const Benefits = () => {
   return (
-    <section className="px-6 py-20 lg:py-18">
-      <div className="mx-auto mb-16 max-w-2xl text-center">
+    <section className="py-10 md:py-12 lg:py-18">
+      <div className="mx-auto mb-8 md:mb-16 max-w-2xl text-center">
         <h2 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
           Built For Both Sides
         </h2>
-        <p className="mt-4 text-base leading-relaxed text-[#414754] sm:text-lg">
+        <p className="mt-4 text-sm md:text-base lg:text-lg leading-relaxed text-gray-600">
           Whether you curate community events or build an artisan business, StallSpot replaces friction with flow.
         </p>
-      </div>;
+      </div>
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-2">
         <BenefitCard
           audience="For Event Curators & Organizers"

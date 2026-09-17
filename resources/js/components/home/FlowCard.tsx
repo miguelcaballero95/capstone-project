@@ -9,7 +9,7 @@ export const FlowCard = ({ item }: Props) => {
   const { number, title, copy, color, icon: Icon } = item;
 
   return (
-    <div className="rounded-2xl bg-white p-8 shadow-sm transition hover:-translate-y-1">
+    <div className="rounded-2xl bg-white p-8 md:p-4 lg:p-8 shadow-sm transition hover:-translate-y-1">
       <div className="mb-8 flex items-center justify-between">
         <div
           className={`flex h-12 w-12 items-center justify-center rounded-xl 
