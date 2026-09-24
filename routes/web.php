@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rules\Password;
 
@@ -11,7 +14,7 @@ Route::inertia('/admin/events', 'admin/Events')->middleware('auth');
 
 Route::post('/register', function (Request $request) {
 
-    $request->validate([
+    $validated = $request->validate([
         'firstName' => ['required', 'string', 'max:255'],
         'lastName' => ['required', 'string', 'max:255'],
         'role' => ['required', 'string', 'max:255'],
@@ -20,5 +23,16 @@ Route::post('/register', function (Request $request) {
         'password' => ['required', Password::default()],
     ]);
 
-    dd($request->all());
+    $user = User::create([
+        'first_name' => $validated['firstName'],
+        'last_name' => $validated['lastName'],
+        'role' => $validated['role'],
+        'business_name' => $validated['businessName'],
+        'email' => $validated['email'],
+        'password' => Hash::make($validated['password']),
+    ]);
+
+    Auth::login($user);
+
+    return redirect('/admin/events');
 });
