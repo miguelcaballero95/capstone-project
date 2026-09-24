@@ -5,9 +5,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rules\Password;
 
 Route::inertia('/', 'Home');
-Route::inertia('/login', 'auth/Login');
+Route::inertia('/login', 'auth/Login')->name('login');
 Route::inertia('/register', 'auth/Register');
-Route::inertia('/admin/events', 'admin/Events');
+Route::inertia('/admin/events', 'admin/Events')->middleware('auth');
 
 Route::post('/register', function (Request $request) {
 
