@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Form, Link } from "@inertiajs/react";
 
 export default function LoginPage() {
   return (
@@ -42,45 +42,51 @@ export default function LoginPage() {
                 </p>
               </div>
 
-              <form className="space-y-5">
-                <div>
-                  <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
-                    Email address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="w-full rounded-xl bg-slate-100 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-200"
-                    placeholder="you@example.com"
-                  />
-                </div>
+              <Form action="/login" method="post" className="space-y-5">
+                {
+                  ({ errors, processing }) => (
+                    <>
+                      <div>
+                        <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
+                          Email address
+                        </label>
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          className="w-full rounded-xl bg-slate-100 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-200"
+                          placeholder="you@example.com"
+                        />
+                        {errors.email && <p className="text-red-500">{errors.email}</p>}
+                      </div>
 
-                <div>
-                  <label htmlFor="password" className="mb-2 block text-sm font-semibold text-slate-700">
-                    Password
-                  </label>
-                  <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    required
-                    className="w-full rounded-xl bg-slate-100 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-200"
-                    placeholder="••••••••"
-                  />
-                </div>
+                      <div>
+                        <label htmlFor="password" className="mb-2 block text-sm font-semibold text-slate-700">
+                          Password
+                        </label>
+                        <input
+                          id="password"
+                          name="password"
+                          type="password"
+                          autoComplete="current-password"
+                          className="w-full rounded-xl bg-slate-100 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-200"
+                          placeholder="••••••••"
+                        />
+                        {errors.password && <p className="text-red-500">{errors.password}</p>}
+                      </div>
 
-                <button
-                  type="submit"
-                  className="w-full cursor-pointer rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5"
-                >
-                  Log in
-                </button>
-              </form>
-
+                      <button
+                        type="submit"
+                        disabled={processing}
+                        className="w-full cursor-pointer rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5"
+                      >
+                        Log in
+                      </button>
+                    </>
+                  )
+                }
+              </Form>
               <p className="mt-8 text-center text-sm text-slate-500">
                 Don't have an account?{" "}
                 <Link href="/register" className="font-bold text-primary hover:underline">
