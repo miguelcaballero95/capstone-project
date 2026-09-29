@@ -1,5 +1,5 @@
-import {Form, Link} from "@inertiajs/react";
-import {Armchair, Store} from "lucide-react";
+import { Form, Link } from "@inertiajs/react";
+import { Armchair, Store } from "lucide-react";
 
 export default function RegisterPage() {
   return (
@@ -8,7 +8,7 @@ export default function RegisterPage() {
         <section
           className="hidden overflow-hidden bg-primary px-12 py-12 text-white lg:flex lg:flex-col lg:justify-between xl:px-20">
           <Link href="/" className="flex justify-center">
-            <img src="/images/logo-portrait-white.png" alt="StallSpot Logo" className="h-auto w-70"/>
+            <img src="/images/logo-portrait-white.png" alt="StallSpot Logo" className="h-auto w-70" />
           </Link>
           <div className="max-w-xl">
             <p className="mb-5 text-sm font-bold uppercase tracking-[0.22em] text-blue-100">
@@ -28,7 +28,7 @@ export default function RegisterPage() {
           <div className="w-full max-w-4xl">
             <div className="mb-2 md:mb-10 flex justify-center lg:hidden">
               <Link href="/">
-                <img src="/images/logo-landscape.png" alt="StallSpot Logo" className="h-auto w-50"/>
+                <img src="/images/logo-landscape.png" alt="StallSpot Logo" className="h-auto w-50" />
               </Link>
             </div>
             <div className="mb-4 md:mb-8">
@@ -42,14 +42,14 @@ export default function RegisterPage() {
             </div>
 
             <Form className="space-y-5" action="/register" method="post">
-              {({errors, processing}) => (
+              {({ errors, processing }) => (
                 <>
                   <fieldset>
                     <legend className="mb-3 block text-sm font-semibold">
                       I'm joining as a...
                     </legend>
                     <div className="grid gap-3 md:grid-cols-2">
-                      <label className="group relative cursor-pointer">
+                      <label className="group relative cursor-pointer" data-test="role-vendor">
                         <input
                           type="radio"
                           name="role"
@@ -61,7 +61,7 @@ export default function RegisterPage() {
                           className="flex h-full items-center gap-3 rounded-xl bg-slate-100 p-4 transition group-hover:bg-slate-200 peer-checked:bg-blue-50 peer-checked:ring-2 peer-checked:ring-primary peer-checked:[&>span:first-child]:bg-primary peer-checked:[&>span:first-child]:text-white peer-checked:[&>span:last-child]:border-primary peer-checked:[&>span:last-child>span]:opacity-100">
                           <span
                             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-sm font-extrabold text-primary shadow-sm transition">
-                            <Store size={20}/>
+                            <Store size={20} />
                           </span>
                           <span>
                             <span className="block text-sm font-bold">Vendor</span>
@@ -72,18 +72,23 @@ export default function RegisterPage() {
                           <span
                             className="ml-auto flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-slate-300 peer-checked:border-primary">
                             <span
-                              className="h-2.5 w-2.5 rounded-full bg-primary opacity-0 transition peer-checked:opacity-100"/>
+                              className="h-2.5 w-2.5 rounded-full bg-primary opacity-0 transition peer-checked:opacity-100" />
                           </span>
                         </span>
                       </label>
 
-                      <label className="group relative cursor-pointer">
-                        <input type="radio" name="role" value="organizer" className="peer sr-only"/>
+                      <label className="group relative cursor-pointer" data-test="role-organizer">
+                        <input
+                          type="radio"
+                          name="role"
+                          value="organizer"
+                          className="peer sr-only"
+                        />
                         <span
                           className="flex h-full items-center gap-3 rounded-xl bg-slate-100 p-4 transition group-hover:bg-slate-200 peer-checked:bg-blue-50 peer-checked:ring-2 peer-checked:ring-primary peer-checked:[&>span:first-child]:bg-primary peer-checked:[&>span:first-child]:text-white peer-checked:[&>span:last-child]:border-primary peer-checked:[&>span:last-child>span]:opacity-100">
                           <span
                             className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-sm font-extrabold text-primary shadow-sm transition">
-                            <Armchair size={20}/>
+                            <Armchair size={20} />
                           </span>
                           <span>
                             <span className="block text-sm font-bold">Organizer</span>
@@ -94,7 +99,7 @@ export default function RegisterPage() {
                           <span
                             className="ml-auto flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-slate-300">
                             <span
-                              className="h-2.5 w-2.5 rounded-full bg-primary opacity-0 transition"/>
+                              className="h-2.5 w-2.5 rounded-full bg-primary opacity-0 transition" />
                           </span>
                         </span>
                       </label>
@@ -110,7 +115,6 @@ export default function RegisterPage() {
                         name="firstName"
                         type="text"
                         autoComplete="name"
-
                         className="w-full rounded-xl bg-slate-100 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-blue-200"
                         placeholder="John"
                       />
@@ -125,7 +129,6 @@ export default function RegisterPage() {
                         name="lastName"
                         type="text"
                         autoComplete="name"
-
                         className="w-full rounded-xl bg-slate-100 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:ring-2 focus:ring-blue-200"
                         placeholder="Doe"
                       />
