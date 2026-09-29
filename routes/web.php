@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SessionController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -8,37 +9,19 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\Rules\Password;
 
 Route::inertia('/', 'Home');
-Route::inertia('/login', 'auth/Login')->name('login');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [SessionController::class, 'create'])->name('login');
+    Route::post('/login', [SessionController::class, 'store']);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [SessionController::class, 'destroy']);
+});
+
+
 Route::inertia('/register', 'auth/Register');
 Route::inertia('/admin/events', 'admin/Events')->middleware('auth');
-
-Route::post('/login', function (request $request) {
-
-    $validated = $request->validate([
-        'email' => ['required', 'string', 'email'],
-        'password' => ['required', 'string'],
-    ]);
-
-    if (Auth::attempt($validated)) {
-        $request->session()->regenerate();
-
-        return redirect()->intended('/admin/events');
-    }
-
-    return back()->withErrors([
-        'email' => 'The provided credentials do not match our records.',
-    ]);
-
-});
-
-Route::post('/logout', function (Request $request) {
-    Auth::logout();
-
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-
-    return redirect('/login');
-});
 
 Route::post('/register', function (Request $request) {
 
