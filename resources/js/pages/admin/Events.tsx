@@ -1,4 +1,5 @@
 import { Header } from "@/components/shared/Header"
+import { Link } from "@inertiajs/react"
 
 export default function AdminEventsPage() {
   return (
@@ -8,6 +9,9 @@ export default function AdminEventsPage() {
         <div className="mx-auto max-w-7xl space-y-8">
           <div className="flex items-end justify-between">
             <h1 className="text-2xl font-bold tracking-tight">My Events</h1>
+            <Link href="/admin/events/create" className="rounded-lg bg-blue-600 px-4 py-2 text-sm lg:text-base font-semibold text-white transition-colors hover:bg-blue-700">
+              New Event
+            </Link>
           </div>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             <article className="overflow-hidden rounded-xl bg-white shadow-md">
