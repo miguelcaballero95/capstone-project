@@ -12,7 +12,7 @@ class RegisterUserController extends Controller
 {
     public function create()
     {
-        return inertia('auth/Register');
+        return inertia('Auth/Register');
     }
 
     public function store(Request $request)
@@ -37,6 +37,6 @@ class RegisterUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/admin/events');
+        return redirect('/events');
     }
 }

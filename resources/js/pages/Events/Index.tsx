@@ -1,7 +1,7 @@
 import { Header } from "@/components/shared/Header"
 import { Link } from "@inertiajs/react"
 
-export default function AdminEventsPage() {
+export default function EventsPage() {
   return (
     <div className="min-h-screen bg-background text-black">
       <Header />

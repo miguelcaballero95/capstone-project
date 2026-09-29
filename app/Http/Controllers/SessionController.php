@@ -9,7 +9,7 @@ class SessionController extends Controller
 {
     public function create()
     {
-        return inertia('auth/Login');
+        return inertia('Auth/Login');
     }
 
     public function store(Request $request)
@@ -22,7 +22,7 @@ class SessionController extends Controller
         if (Auth::attempt($validated)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/admin/events');
+            return redirect()->intended('/events');
         }
 
         return back()->withErrors([
