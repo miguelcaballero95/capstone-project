@@ -23,7 +23,7 @@ class RegisterUserController extends Controller
             'role' => ['required', 'string', 'max:255'],
             'businessName' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', Password::default()],
+            'password' => ['required', Password::default()->min(8)->mixedCase()->numbers()->symbols()],
         ]);
 
         $user = User::create([
