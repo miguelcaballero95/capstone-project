@@ -1,6 +1,6 @@
 import { Form, Link } from "@inertiajs/react";
 
-export default function LoginPage() {
+export default function ForgotPasswordPage() {
   return (
     <main className="min-h-screen bg-background">
       <div className="grid min-h-screen lg:grid-cols-2">
@@ -32,13 +32,13 @@ export default function LoginPage() {
             <div className="flex-1 flex flex-col justify-center">
               <div className="mb-4 md:mb-8">
                 <p className="mb-3 text-sm font-bold uppercase tracking-wide text-emerald-700">
-                  Welcome back
+                  Forgot your password?
                 </p>
                 <h2 className="text-2xl font-extrabold tracking-tight text-slate-950 md:text-3xl">
-                  Log in to your account
+                  Reset your password
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Pick up where you left off and keep your events moving forward.
+                  Enter your email address and we'll send you a link to reset your password.
                 </p>
               </div>
 
@@ -60,44 +60,21 @@ export default function LoginPage() {
                         />
                         {errors.email && <p className="text-red-500">{errors.email}</p>}
                       </div>
-
-                      <div>
-                        <label htmlFor="password" className="mb-2 block text-sm font-semibold text-slate-700">
-                          Password
-                        </label>
-                        <input
-                          id="password"
-                          name="password"
-                          type="password"
-                          autoComplete="current-password"
-                          className="w-full rounded-xl bg-slate-100 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:bg-white focus:ring-2 focus:ring-blue-200"
-                          placeholder="••••••••"
-                        />
-                        {errors.password && <p className="text-red-500">{errors.password}</p>}
-                      </div>
-                      <div className="text-right">
-                        <Link
-                          href="/forgot-password"
-                          className="text-sm font-semibold text-primary transition hover:underline"
-                        >
-                          Forgot your password?
-                        </Link>
-                      </div>
                       <button
                         type="submit"
                         disabled={processing}
                         className="w-full cursor-pointer rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5"
                       >
-                        Log in
+                        Send Reset Link
                       </button>
                     </>
                   )
                 }
               </Form>
               <p className="mt-8 text-center text-sm text-slate-500">
-                Don't have an account?{" "}
-                <Link href="/register" className="font-bold text-primary hover:underline">
-                  Create an account
+                Remember your password?{" "}
+                <Link href="/login" className="font-bold text-primary hover:underline">
+                  Log in
                 </Link>
               </p>
             </div>
