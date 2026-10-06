@@ -18,4 +18,3 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [SessionController::class, 'destroy']);
     Route::get('/events', [EventController::class, 'index']);
 });
-
