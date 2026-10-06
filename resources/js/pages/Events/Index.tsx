@@ -1,17 +1,29 @@
-import { SiteHeader } from "@/components/shared/header/SiteHeader"
-import { Link } from "@inertiajs/react"
+import { SiteHeader } from "@/components/shared/header/SiteHeader";
+import { Link, usePage } from "@inertiajs/react";
 
 export default function EventsPage() {
+
+  const { auth } = usePage().props;
+  const isOrganizer = auth.user.role === 'organizer';
+
   return (
     <div className="min-h-screen bg-background text-black">
       <SiteHeader />
       <main className="flex-1 px-6 py-8 md:px-8">
         <div className="mx-auto max-w-7xl space-y-8">
           <div className="flex items-end justify-between">
-            <h1 className="text-2xl font-bold tracking-tight">My Events</h1>
-            <Link href="/admin/events/create" className="rounded-lg bg-blue-600 px-4 py-2 text-sm lg:text-base font-semibold text-white transition-colors hover:bg-blue-700">
-              New Event
-            </Link>
+            <h1 className="text-2xl font-bold tracking-tight">
+              {isOrganizer ? 'My Events' : 'Upcoming Events'}
+            </h1>
+            {
+              isOrganizer && (
+                <Link
+                  href="/events/create"
+                  className="rounded-lg bg-blue-600 px-4 py-2 text-sm lg:text-base font-semibold text-white transition-colors hover:bg-blue-700">
+                  New Event
+                </Link>
+              )
+            }
           </div>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             <article className="overflow-hidden rounded-xl bg-white shadow-md">
@@ -61,16 +73,6 @@ export default function EventsPage() {
                 </div>
               </div>
             </article>
-
-            <button
-              type="button"
-              className="flex min-h-100 flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 p-8 text-slate-600 hover:border-blue-500 hover:bg-blue-50"
-            >
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-slate-200 text-4xl text-slate-600">
-                +
-              </span>
-              <span className="text-lg font-bold">Create a new event</span>
-            </button>
           </div>
         </div>
       </main>
