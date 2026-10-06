@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Inertia\Response;
 
 class RegisterUserController extends Controller
 {
-    public function create()
+    public function create(): Response
     {
         return inertia('Auth/Register');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'firstName' => ['required', 'string', 'max:255'],

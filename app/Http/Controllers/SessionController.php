@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Response;
 
 class SessionController extends Controller
 {
-    public function create()
+    public function create(): Response
     {
         return inertia('Auth/Login');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'email' => ['required', 'string', 'email'],
@@ -31,7 +33,7 @@ class SessionController extends Controller
 
     }
 
-    public function destroy(Request $request)
+    public function destroy(Request $request): RedirectResponse
     {
         Auth::logout();
 
