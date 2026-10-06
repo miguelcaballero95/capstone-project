@@ -1,10 +1,10 @@
-import { Header } from "@/components/shared/Header"
+import { SiteHeader } from "@/components/shared/header/SiteHeader"
 import { Link } from "@inertiajs/react"
 
 export default function EventsPage() {
   return (
     <div className="min-h-screen bg-background text-black">
-      <Header />
+      <SiteHeader />
       <main className="flex-1 px-6 py-8 md:px-8">
         <div className="mx-auto max-w-7xl space-y-8">
           <div className="flex items-end justify-between">
