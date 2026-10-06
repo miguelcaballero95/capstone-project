@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 it('registers a new vendor user', function () {
 
     $this->post('/register', [
@@ -38,6 +41,16 @@ it('registers a new organizer user', function () {
         'email' => 'john.doe@example.com',
         'role' => 'organizer',
     ]);
+});
+
+it('password is hashed when registering a new user', function () {
+
+    $user = User::factory()->create([
+        'password' => 'Password123!',
+    ]);
+
+    expect($user->password)->not->toBe('Password123!');
+    expect(Hash::check('Password123!', $user->password))->toBeTrue();
 });
 
 it('shows validation errors when required fields are missing', function () {
