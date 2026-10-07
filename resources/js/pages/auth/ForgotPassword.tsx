@@ -33,28 +33,40 @@ export default function ForgotPasswordPage({ status }: Props) {
               </Link>
             </div>
             <div className="flex-1 flex flex-col justify-center">
-              <div className="mb-4 md:mb-8">
-                <p className="mb-3 text-sm font-bold uppercase tracking-wide text-emerald-700">
-                  Forgot your password?
-                </p>
-                <h2 className="text-2xl font-extrabold tracking-tight text-slate-950 md:text-3xl">
-                  Reset your password
-                </h2>
-                {
-                  status ? (
-                    <p className="mt-3 text-base leading-6 text-emerald-700">
-                      {status}
+              {status ? (
+                <div className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6 text-center md:p-8">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-2xl font-bold text-emerald-700">
+                    ✓
+                  </div>
+                  <p className="mt-6 text-sm font-bold uppercase tracking-wide text-emerald-700">
+                    Email sent
+                  </p>
+                  <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-slate-950 md:text-3xl">
+                    Check your inbox
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {status}
+                  </p>
+                  <Link
+                    href="/login"
+                    className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-primary px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5"
+                  >
+                    Return to login
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <div className="mb-4 md:mb-8">
+                    <p className="mb-3 text-sm font-bold uppercase tracking-wide text-emerald-700">
+                      Forgot your password?
                     </p>
-                  ) : (
+                    <h2 className="text-2xl font-extrabold tracking-tight text-slate-950 md:text-3xl">
+                      Reset your password
+                    </h2>
                     <p className="mt-3 text-sm leading-6 text-slate-600">
                       Enter your email address and we'll send you a link to reset your password.
                     </p>
-                  )
-                }
-              </div>
-              {
-                !status && (
-                  <>
+                  </div>
                     <Form action="/forgot-password" method="post" className="space-y-5">
                       {
                         ({ errors, processing }) => (
@@ -90,9 +102,8 @@ export default function ForgotPasswordPage({ status }: Props) {
                         Log in
                       </Link>
                     </p>
-                  </>
-                )
-              }
+                </>
+              )}
             </div>
           </div>
         </section>
