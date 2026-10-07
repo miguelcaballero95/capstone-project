@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\PasswordResetLinkController;
 use App\Http\Controllers\RegisterUserController;
 use App\Http\Controllers\SessionController;
@@ -15,6 +16,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisterUserController::class, 'store']);
     Route::get('/forgot-password', [PasswordResetLinkController::class, 'create']);
     Route::post('/forgot-password', [PasswordResetLinkController::class, 'store']);
+    Route::get('/reset-password', [NewPasswordController::class, 'create'])->name('password.reset');
 });
 
 Route::middleware('auth')->group(function () {
