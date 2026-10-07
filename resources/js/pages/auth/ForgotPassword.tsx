@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
                 </p>
               </div>
 
-              <Form action="/login" method="post" className="space-y-5">
+              <Form action="/forgot-password" method="post" className="space-y-5">
                 {
                   ({ errors, processing }) => (
                     <>
