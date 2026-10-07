@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class NewPasswordController extends Controller
 {
-    public function create()
+    public function create(string $token)
     {
-        return inertia('Auth/ResetPassword');
+        return inertia('Auth/ResetPassword', ['token' => $token]);
     }
 }

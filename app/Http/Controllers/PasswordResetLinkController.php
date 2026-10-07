@@ -10,7 +10,9 @@ class PasswordResetLinkController extends Controller
 {
     public function create(): Response
     {
-        return inertia('Auth/ForgotPassword');
+        return inertia('Auth/ForgotPassword', [
+            'status' => session('status'),
+        ]);
     }
 
     public function store(Request $request)
