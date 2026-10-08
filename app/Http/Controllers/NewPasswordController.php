@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as PasswordRule;
+use Inertia\Response;
 
 class NewPasswordController extends Controller
 {
-    public function create(string $token)
+    public function create(string $token): Response
     {
         return inertia('Auth/ResetPassword', [
             'token' => $token,
@@ -20,7 +21,7 @@ class NewPasswordController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): void
     {
         $request->validate([
             'token' => ['required'],
