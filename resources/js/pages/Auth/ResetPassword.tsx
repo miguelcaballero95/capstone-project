@@ -1,13 +1,12 @@
-import {Form, Link, usePage} from '@inertiajs/react';
+import { Form, Link, usePage } from '@inertiajs/react';
 
 interface Props {
     token: string;
     email: string;
 }
 
-export default function ResetPassword({token, email}: Props) {
-
-    const {errors} = usePage().props;
+export default function ResetPassword({ token, email }: Props) {
+    const { errors } = usePage().props;
 
     return (
         <div className="flex justify-center px-6 py-12 md:items-center lg:px-8 lg:py-8 xl:px-20">
@@ -34,21 +33,19 @@ export default function ResetPassword({token, email}: Props) {
                             to managing your events.
                         </p>
                     </div>
-                    {
-                        errors && (
-                            <div className="mb-4">
-                                <p className="text-sm text-red-600">
-                                    {errors.message}
-                                </p>
-                            </div>
-                        )
-                    }
+                    {errors && (
+                        <div className="mb-4">
+                            <p className="text-sm text-red-600">
+                                {errors.message}
+                            </p>
+                        </div>
+                    )}
                     <Form
                         action="/reset-password"
                         method="post"
                         className="space-y-5"
                     >
-                        {({errors, processing}) => (
+                        {({ errors, processing }) => (
                             <>
                                 <input
                                     type="hidden"
