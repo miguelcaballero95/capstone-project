@@ -11,7 +11,9 @@ class SessionController extends Controller
 {
     public function create(): Response
     {
-        return inertia('Auth/Login');
+        return inertia('Auth/Login', [
+            'status' => session('status'),
+        ]);
     }
 
     public function store(Request $request): RedirectResponse

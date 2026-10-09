@@ -1,6 +1,10 @@
-import { Form, Link } from '@inertiajs/react';
+import {Form, Link} from '@inertiajs/react';
 
-export default function LoginPage() {
+interface Props {
+    status?: string;
+}
+
+export default function LoginPage({status}: Props) {
     return (
         <div className="flex justify-center px-6 py-12 md:items-center lg:px-8 lg:py-8 xl:px-20">
             <div className="flex w-full max-w-md flex-col">
@@ -25,10 +29,13 @@ export default function LoginPage() {
                             Pick up where you left off and keep your events
                             moving forward.
                         </p>
+                        {
+                            status && <p className="text-sm text-red-500">{status}</p>
+                        }
                     </div>
 
                     <Form action="/login" method="post" className="space-y-5">
-                        {({ errors, processing }) => (
+                        {({errors, processing}) => (
                             <>
                                 <div>
                                     <label

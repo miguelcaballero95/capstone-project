@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
@@ -21,7 +22,7 @@ class NewPasswordController extends Controller
         ]);
     }
 
-    public function store(Request $request): void
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
             'token' => ['required'],
@@ -41,5 +42,9 @@ class NewPasswordController extends Controller
                 event(new PasswordReset($user));
             }
         );
+
+        return $status === Password::PasswordReset
+            ? redirect()->route('login')->with('status', __($status))
+            : back()->withErrors(['email' => [__($status)]]);
     }
 }
