@@ -29,9 +29,11 @@ export default function LoginPage({status}: Props) {
                             Pick up where you left off and keep your events
                             moving forward.
                         </p>
-                        {
-                            status && <p className="text-sm text-red-500">{status}</p>
-                        }
+                        {status && (
+                            <p className="mt-3 text-sm text-emerald-700">
+                                {status}
+                            </p>
+                        )}
                     </div>
 
                     <Form action="/login" method="post" className="space-y-5">
