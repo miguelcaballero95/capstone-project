@@ -1,5 +1,6 @@
 import {Form, Link} from '@inertiajs/react';
 import {SuccessCard} from "@/components/shared/SuccessCard";
+import {store} from "@/actions/App/Http/Controllers/PasswordResetLinkController";
 
 interface Props {
   status?: string;
@@ -44,7 +45,7 @@ export default function ForgotPasswordPage({status}: Props) {
                 </p>
               </div>
               <Form
-                action="/forgot-password"
+                action={store()}
                 method="post"
                 className="space-y-5"
               >
