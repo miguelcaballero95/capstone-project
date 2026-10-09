@@ -66,7 +66,7 @@ export default function LoginPage({status}: Props) {
                 <button
                   type="submit"
                   disabled={processing}
-                  className="bg-primary w-full cursor-pointer rounded-xl px-5 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5"
+                  className="btn-primary"
                 >
                   Log in
                 </button>
